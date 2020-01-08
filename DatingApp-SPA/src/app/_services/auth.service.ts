@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly baseUrl = 'https://localhost:44362/api/auth';
+  private readonly baseUrl = 'http://localhost:5000/api/auth/';
   constructor(private http: HttpClient) { }
 
   login(model: any) {
@@ -18,6 +18,9 @@ export class AuthService {
           localStorage.setItem('token', user.token);
         }
       })
-      )
+      );
+  }
+  register(model: any) {
+    return this.http.post(this.baseUrl + 'register', model);
   }
 }
