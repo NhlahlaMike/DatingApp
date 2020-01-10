@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap';
+import { appRoutes } from './routes';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './home/register/register.component';
 import { ErrorInterceptorProvider } from './_services/error.interceptor';
 import { AlertifyService } from './_services/alertify.service';
+import { RouterModule } from '@angular/router';
+import { AuthGuard } from './_guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -25,9 +28,13 @@ import { AlertifyService } from './_services/alertify.service';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [AuthService, ErrorInterceptorProvider, AlertifyService],
+  providers: [AuthService,
+              ErrorInterceptorProvider,
+              AlertifyService,
+              AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
