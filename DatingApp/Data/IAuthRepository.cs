@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DatingApp.Data
 {
+	// Interface Repository for User Authorization (Made to be used by multiple controller classes)
 	public interface IAuthRepository
 	{
 		Task<User> Register(User user, string password);
