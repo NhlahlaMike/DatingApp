@@ -13,6 +13,7 @@ namespace DatingApp.Helpers
 	{
 		public AutoMapperProfiles()
 		{
+
 			CreateMap<User, UserForListDto>()
 				.ForMember(dest => dest.PhotoUrl, opt =>
 				{
@@ -32,6 +33,9 @@ namespace DatingApp.Helpers
 					 opt.ResolveUsing(src => src.DateOfBirth.CalculateAge());
 				 });
 			CreateMap<Photo, PhotosForDetailedDto>();
+			CreateMap<UserForUpdateDto, User>();
+
+			// CreateMap<source, Destination>();
 		}
 	}
 }
