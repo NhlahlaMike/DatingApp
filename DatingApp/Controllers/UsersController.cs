@@ -31,16 +31,16 @@ namespace DatingApp.Controllers
 		public async Task<IActionResult> GetUsers()
 		{
 			var users = await _repo.GetUsers();
-			var usersToReturn = _mapper.Map<IEnumerable<UserForDetailedDto>>(users);
+			var usersToReturn = _mapper.Map<IEnumerable<UserForDetailedDto>>(users); // _mapper.Map<Destination>(Source);
 			return Ok(usersToReturn);
 		}
 
 		// GET: api/Users/5
-		[HttpGet("{id}")]
+		[HttpGet("{id}", Name ="GetUser")]
 		public async Task<IActionResult> GetUser(int id)
 		{
 			var user = await _repo.GetUser(id);
-			var userToReturn = _mapper.Map<UserForDetailedDto>(user); 
+			var userToReturn = _mapper.Map<UserForDetailedDto>(user); // _mapper.Map<Destination>(Source);
 			return Ok(userToReturn);
 		}
 
@@ -52,7 +52,7 @@ namespace DatingApp.Controllers
 				return Unauthorized();
 
 			var userFromRepo = await _repo.GetUser(id);
-			_mapper.Map(userForUpdateDto, userFromRepo);
+			_mapper.Map(userForUpdateDto, userFromRepo); // _mapper.Map<Destination>(Source);
 
 			if (await _repo.SaveAll())
 				return NoContent();

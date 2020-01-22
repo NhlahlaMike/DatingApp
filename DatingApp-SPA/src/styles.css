@@ -4,6 +4,7 @@
 @import '../node_modules/alertifyjs/build/css/alertify.min.css';
 @import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
 @import '../node_modules/bootswatch/dist/united/bootstrap.min.css';
+@import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
 
 .tab-panel {
   border: 1px solid #ddd;
@@ -49,4 +50,23 @@
   border: 0;
   border-top: 1px solid #eee;
   padding: 15px 0;
+}
+/*datepicker css (optional for changing theme color)*/
+.bs-datepicker-head {
+ background-color : #E95420 !important;
+ }
+.bs-datepicker-body table td.week span
+{
+  color: #E95420 !important;
+}
+
+.bs-datepicker-body table td span.selected,
+.bs-datepicker-head,
+.bs-datepicker-head, .bs-datepicker button:active,
+.bs-datepicker-body table td.selected span,
+.bs-datepicker-body table td span[class*="select-"]:after,
+.bs-datepicker-body table td[class*="select-"] span:after,
+.bs-datepicker-body table td.active-week span:hover
+{
+  background-color : #E95420 !important;
 }
